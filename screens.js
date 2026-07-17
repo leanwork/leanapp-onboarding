@@ -41,6 +41,103 @@
   }
 
   const SCREENS = {
+    banners() {
+      const B = LA.BANNERS;
+      const glyph = '<svg class="bn-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="M4 18l5-5 4 4 3-3 4 4"></path></svg>';
+
+      const rules = B.regras.map((r) => `
+        <div class="bn-rule">
+          <span class="bn-rule-n">${esc(r.n)}</span>
+          <div><div class="bn-rule-t">${esc(r.t)}</div><p class="bn-rule-d">${esc(r.d)}</p></div>
+        </div>`).join('');
+
+      const hdim = (txt) => `<div class="bn-hdim"><span class="bn-hdim-line"></span><span class="bn-hdim-txt">${txt}</span></div>`;
+      const hov = (k) => `onmouseenter="LAapp.bnHi('${k}',1)" onmouseleave="LAapp.bnHi('${k}',0)"`;
+
+      const diagram = `
+        <div class="bn-diagram">
+          <div class="bn-dtop"><div class="bn-wdim">Área útil · 1080px</div></div>
+
+          <div class="bn-drow bn-drow-simples">
+            <div class="bn-dname">Imagem simples<br>ou carrossel</div>
+            <div class="bn-dmock" data-format="simples" ${hov('simples')}><div class="bn-ph bn-ph-simples">${glyph}</div></div>
+            <div class="bn-dh">${hdim('Exemplo com<br>700px de altura')}</div>
+          </div>
+
+          <div class="bn-drow bn-drow-lista">
+            <div class="bn-dname">Lista horizontal</div>
+            <div class="bn-dmock" data-format="lista" ${hov('lista')}>
+              <div class="bn-lista">
+                ${[0, 1].map((i) => `
+                <div class="bn-litem">
+                  <div class="bn-litem-top">
+                    <div class="bn-litem-card">${glyph}<span class="bn-litem-title">Título</span></div>
+                    ${hdim('214px')}
+                  </div>
+                  <div class="bn-litem-w"><div class="bn-wdim bn-wdim-sm">160px</div></div>
+                </div>`).join('')}
+              </div>
+            </div>
+            <div class="bn-dh"><p class="bn-lista-note"><b>Largura livre.</b> 160&nbsp;px é a sugestão para categorias/stories — é ela que define quantos itens ficam visíveis sem scroll. O título deve estar dentro da imagem.</p></div>
+          </div>
+
+          <div class="bn-drow bn-drow-grade">
+            <div class="bn-dname">Grade</div>
+            <div class="bn-dmock" data-format="grade" ${hov('grade')}>
+              <div class="bn-grade">
+                <div class="bn-grade-col"><div class="bn-ph bn-ph-grade">${glyph}</div><div class="bn-wdim bn-wdim-sm">540px</div></div>
+                <div class="bn-grade-col"><div class="bn-ph bn-ph-grade">${glyph}</div><div class="bn-wdim bn-wdim-sm">540px</div></div>
+              </div>
+            </div>
+            <div class="bn-dh">${hdim('Exemplo com<br>500px de altura')}</div>
+          </div>
+        </div>`;
+
+      const fIcons = {
+        simples: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5.5" width="18" height="13" rx="2"></rect></svg>',
+        lista: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="6.5" height="14" rx="1.5"></rect><rect x="11" y="5" width="6.5" height="14" rx="1.5"></rect><line x1="20" y1="5" x2="20" y2="19"></line></svg>',
+        grade: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5.5" width="8" height="13" rx="1.5"></rect><rect x="13" y="5.5" width="8" height="13" rx="1.5"></rect></svg>'
+      };
+      const caps = B.formatos.map((f) => `
+        <div class="bn-cap" data-format="${f.key}" ${hov(f.key)}>
+          <div class="bn-cap-head"><span class="bn-cap-icn">${fIcons[f.key] || ''}</span><div class="bn-cap-t">${esc(f.t)}</div></div>
+          <p class="bn-cap-d">${esc(f.d)}</p>
+          <dl class="bn-cap-specs">${(f.specs || []).map(([k, v]) => `<div class="bn-spec"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>
+        </div>`).join('');
+
+      return `<div class="screen bn">
+        ${crumb([{ t: 'Início', href: '#/home' }, { t: 'Guia de banners' }])}
+        <header class="page-head">
+          <div class="feat-kicker">Marketing · Produção de banners</div>
+          <h1>Guia de banners</h1>
+          <p>${esc(B.intro)}</p>
+        </header>
+
+        <section class="block">
+          <h2>Regras gerais</h2>
+          <p class="block-note">Valem para qualquer banner, em qualquer formato.</p>
+          <div class="bn-rules">${rules}</div>
+        </section>
+
+        <section class="block">
+          <h2>Formatos de banner</h2>
+          <p class="block-note">Todos partem da mesma área útil de 1080px de largura. O diagrama mostra como cada formato ocupa a tela do app.</p>
+          ${diagram}
+          <div class="bn-caps">${caps}</div>
+        </section>
+
+        <section class="block">
+          <h2>Checklist rápido antes de cadastrar</h2>
+          ${bullets(B.checklist, 'check')}
+        </section>
+
+        <div class="faq-foot">
+          <div><b>Onde uso esses banners?</b><p>Em Vitrines (home do app) e Hotsites (páginas de campanha).</p></div>
+          <a class="btn" href="#/f/vitrines">Ir para Vitrines</a>
+        </div>
+      </div>`;
+    },
+
     feature(id) {
       const f = LA.byId(id);
       if (!f) return `<div class="screen"><p>Funcionalidade não encontrada.</p><a href="#/home">Voltar ao início</a></div>`;
@@ -93,6 +190,11 @@
               <p class="side-resp">${esc(f.responsavel)}</p>
             </div>
             ${relatedLinks(f)}
+            ${f.group === 'Marketing' ? `<div class="side-card">
+              <div class="side-h">Antes de subir a arte</div>
+              <p class="side-resp">Confira as medidas e formatos de banner do app.</p>
+              <a class="side-link" href="#/banners" style="border-bottom:0;padding-bottom:0;font-weight:600">Guia de banners →</a>
+            </div>` : ''}
           </aside>
         </div>
       </article>`;

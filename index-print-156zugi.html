@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lean App · Onboarding</title>
@@ -295,57 +304,35 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em;line-height:1.15}
 .bn-rule-n{flex-shrink:0;width:28px;height:28px;background:#15181d;color:#fff;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:800}
 .bn-rule-t{font-size:15px;font-weight:700;margin-bottom:4px}
 .bn-rule-d{margin:0;font-size:13px;color:var(--ink2);line-height:1.55}
-.bn-diagram{display:grid;grid-template-columns:minmax(84px,1fr) minmax(0,440px) minmax(84px,1fr);align-items:center;column-gap:36px;row-gap:30px;margin:22px 0 6px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:30px 40px 52px}
-.bn-dtop{grid-column:2;padding-bottom:0}
-.bn-dtop .bn-wdim{width:100%;max-width:none;margin:0}
-.bn-drow{display:contents}
-.bn-dname{grid-column:1;justify-self:end;align-self:center;text-align:right;font-size:15px;font-weight:700;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
-.bn-dmock{grid-column:2;align-self:stretch;padding:0;transition:box-shadow .18s}
-.bn-dmock.is-hi .bn-ph,.bn-dmock.is-hi .bn-litem-card{border-color:var(--brand);box-shadow:inset 0 0 0 2px var(--brand)}
-.bn-dh{grid-column:3;justify-self:start;align-self:stretch;display:flex;align-items:center;padding:0}
-.bn-dh .bn-hdim{height:100%}
-.bn-caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.bn-cap{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:border-color .18s,box-shadow .18s,transform .18s}
-.bn-cap-head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.bn-cap-icn{flex:none;width:34px;height:34px;border-radius:9px;background:var(--hover);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink2);transition:background .18s,color .18s,border-color .18s}
-.bn-cap-icn svg{width:19px;height:19px}
-.bn-cap-t{font-size:14.5px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
-.bn-cap-d{margin:0 0 13px;font-size:12.5px;line-height:1.55;color:var(--ink2)}
-.bn-cap-specs{margin:auto 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:7px}
-.bn-spec{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.bn-spec dt{font-size:11.5px;color:var(--muted);letter-spacing:.01em}
-.bn-spec dd{margin:0;font-family:ui-monospace,monospace;font-size:11.5px;font-weight:600;color:var(--ink);text-align:right}
-.bn-cap.is-hi,.bn-cap:hover{border-color:var(--brand);box-shadow:0 6px 18px -8px color-mix(in oklch,var(--brand),transparent 62%);transform:translateY(-2px)}
-.bn-cap.is-hi .bn-cap-icn,.bn-cap:hover .bn-cap-icn{background:var(--brand);border-color:var(--brand);color:#fff}
+.bn-fmts{display:flex;flex-direction:column;gap:16px;margin-top:14px}
+.bn-fmt{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:26px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 26px;box-shadow:var(--shadow)}
+.bn-fmt-t{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.bn-fmt-d{margin:6px 0 16px;font-size:13.5px;color:var(--ink2)}
+.bn-fmt-specs{display:flex;flex-direction:column;gap:1px}
+.bn-spec{display:flex;justify-content:space-between;gap:14px;font-size:13px;padding:8px 0;border-top:1px solid var(--line2)}
+.bn-spec:first-child{border-top:0}
+.bn-spec span{color:var(--muted)}
+.bn-spec b{font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;font-weight:600;font-size:12.5px;color:var(--ink)}
+.bn-fmt-mock{display:flex;justify-content:center}
+.bn-visual{width:100%;max-width:320px}
 .bn-wdim{font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted);text-align:center;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:10px;position:relative}
 .bn-wdim::before,.bn-wdim::after{content:"";position:absolute;bottom:-1px;width:1px;height:6px;background:var(--line)}
 .bn-wdim::before{left:0}.bn-wdim::after{right:0}
 .bn-wdim-sm{margin-top:8px;margin-bottom:0;border-bottom:0;border-top:1px solid var(--line);padding:8px 0 0}
 .bn-wdim-sm::before,.bn-wdim-sm::after{top:-1px;bottom:auto}
-.bn-hpair{display:flex;align-items:stretch;gap:12px}
-.bn-hdim{flex-shrink:0;display:flex;align-items:center;gap:9px}
-.bn-hdim-line{flex-shrink:0;width:1px;align-self:stretch;background:var(--line);position:relative}
-.bn-hdim-line::before,.bn-hdim-line::after{content:"";position:absolute;left:-3px;width:7px;height:1px;background:var(--line)}
-.bn-hdim-line::before{top:0}.bn-hdim-line::after{bottom:0}
-.bn-hdim-txt{font-family:ui-monospace,monospace;font-size:11px;font-weight:600;line-height:1.35;color:var(--muted);white-space:nowrap}
+.bn-hpair{display:flex;align-items:stretch;gap:10px}
+.bn-hdim{flex-shrink:0;writing-mode:vertical-rl;font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--muted);display:flex;align-items:center;border-left:1px solid var(--line);padding-left:8px}
 .bn-ph{flex:1;border:1px dashed #cfd4db;border-radius:8px;background:repeating-linear-gradient(45deg,#fbfbfc,#fbfbfc 9px,#f2f3f6 9px,#f2f3f6 18px);display:grid;place-items:center;color:#c2c8d0}
 .bn-glyph{width:30px;height:30px}
-.bn-ph-simples{width:100%;aspect-ratio:1080/700}
-.bn-lista{display:flex;gap:22px;justify-content:flex-start}
-.bn-litem{display:flex;flex-direction:column;gap:0}
-.bn-litem-top{display:flex;align-items:stretch;gap:8px}
-.bn-litem-card{flex:0 0 60px;width:60px;aspect-ratio:160/214;position:relative;border:1px dashed #cfd4db;border-radius:9px;overflow:hidden;background:repeating-linear-gradient(45deg,#fbfbfc,#fbfbfc 9px,#f2f3f6 9px,#f2f3f6 18px);display:grid;place-items:center;color:#c2c8d0}
-.bn-litem-card .bn-glyph{width:22px;height:22px}
-.bn-litem-title{position:absolute;left:6px;right:6px;bottom:8px;text-align:center;font-size:9.5px;font-weight:700;letter-spacing:.01em;color:var(--ink2);background:rgba(255,255,255,.88);border-radius:4px;padding:3px 0}
-.bn-drow-lista .bn-dh{align-items:flex-start}
-.bn-lista-note{margin:0;font-size:11.5px;line-height:1.55;color:var(--muted);max-width:180px;padding-left:14px;border-left:2px solid var(--line2)}
-.bn-lista-note b{color:var(--ink)}
-.bn-litem-w{width:60px;margin-top:9px}
-.bn-litem-w .bn-wdim-sm{margin:0}
-.bn-grade{width:100%;display:flex;gap:12px}
-.bn-grade-col{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
-.bn-ph-grade{flex:none;width:100%;aspect-ratio:540/500}
-.bn-grade-col .bn-wdim-sm{position:absolute;top:100%;left:0;right:0;margin:10px 0 0}
+.bn-ph-simples{aspect-ratio:1080/700}
+.bn-lista{display:flex;gap:14px}
+.bn-item{flex:1;min-width:0}
+.bn-ph-item{aspect-ratio:1}
+.bn-item-title{margin-top:8px;height:20px;border:1px solid var(--line);border-radius:6px;background:var(--hover);display:grid;place-items:center;font-size:10.5px;color:var(--muted)}
+.bn-grade{flex:1;display:flex;gap:12px}
+.bn-ph-grade{aspect-ratio:540/500}
+.bn-grade-dims{display:flex;gap:12px;margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.bn-grade-dims span{flex:1;text-align:center;font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:var(--muted)}
 
 /* ===================== RESPONSIVE ===================== */
 @media(max-width:1040px){
@@ -368,72 +355,12 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em;line-height:1.15}
   .jrow{grid-template-columns:1fr}
   .gx-cols,.gx-tech-grid{grid-template-columns:1fr}
   .bn-rules{grid-template-columns:1fr}
-  .bn-diagram{grid-template-columns:1fr;max-width:420px;padding:22px}
-  .bn-dtop{grid-column:1}
-  .bn-dname{grid-column:1;justify-self:start;text-align:left;padding:2px 0}
-  .bn-dmock{grid-column:1}
-  .bn-dh{grid-column:1;justify-self:start;align-self:auto;padding:6px 0 16px}
-  .bn-dh .bn-hdim{height:auto}
-  .bn-caps{grid-template-columns:1fr}
+  .bn-fmt{grid-template-columns:1fr;gap:20px}
+  .bn-fmt-mock{justify-content:flex-start}
 }
 </style>
-  <meta name="ext-resource-dependency" content="img/assinaturas-adicionar.png" data-resource-id="assinaturas_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/assinaturas-config.png" data-resource-id="assinaturas_config_png" />
-  <meta name="ext-resource-dependency" content="img/assinaturas.png" data-resource-id="assinaturas_png" />
-  <meta name="ext-resource-dependency" content="img/categorias-adicionar.png" data-resource-id="categorias_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/categorias.png" data-resource-id="categorias_png" />
-  <meta name="ext-resource-dependency" content="img/config-catalogo.png" data-resource-id="config_catalogo_png" />
-  <meta name="ext-resource-dependency" content="img/config-checkout.png" data-resource-id="config_checkout_png" />
-  <meta name="ext-resource-dependency" content="img/config-cupons.png" data-resource-id="config_cupons_png" />
-  <meta name="ext-resource-dependency" content="img/config-favoritos.png" data-resource-id="config_favoritos_png" />
-  <meta name="ext-resource-dependency" content="img/config-notificacoes.png" data-resource-id="config_notificacoes_png" />
-  <meta name="ext-resource-dependency" content="img/config-produto.png" data-resource-id="config_produto_png" />
-  <meta name="ext-resource-dependency" content="img/config-regionalizacao.png" data-resource-id="config_regionalizacao_png" />
-  <meta name="ext-resource-dependency" content="img/controle-versao-adicionar.png" data-resource-id="controle_versao_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/controle-versao.png" data-resource-id="controle_versao_png" />
-  <meta name="ext-resource-dependency" content="img/dashboard.png" data-resource-id="dashboard_png" />
-  <meta name="ext-resource-dependency" content="img/especificacoes-adicionar.png" data-resource-id="especificacoes_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/especificacoes.png" data-resource-id="especificacoes_png" />
-  <meta name="ext-resource-dependency" content="img/etiquetas-adicionar.png" data-resource-id="etiquetas_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/etiquetas.png" data-resource-id="etiquetas_png" />
-  <meta name="ext-resource-dependency" content="img/grades-adicionar.png" data-resource-id="grades_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/grades.png" data-resource-id="grades_png" />
-  <meta name="ext-resource-dependency" content="img/hotsites-adicionar.png" data-resource-id="hotsites_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/hotsites-componentes.png" data-resource-id="hotsites_componentes_png" />
-  <meta name="ext-resource-dependency" content="img/hotsites.png" data-resource-id="hotsites_png" />
-  <meta name="ext-resource-dependency" content="img/integracoes-wake.png" data-resource-id="integracoes_wake_png" />
-  <meta name="ext-resource-dependency" content="img/integracoes.png" data-resource-id="integracoes_png" />
-  <meta name="ext-resource-dependency" content="img/leanapp-logo-neg.png" data-resource-id="leanapp_logo_neg_png" />
-  <meta name="ext-resource-dependency" content="img/leanapp-logo.png" data-resource-id="leanapp_logo_png" />
-  <meta name="ext-resource-dependency" content="img/leanwork-group.png" data-resource-id="leanwork_group_png" />
-  <meta name="ext-resource-dependency" content="img/logs.png" data-resource-id="logs_png" />
-  <meta name="ext-resource-dependency" content="img/paginas-institucionais.png" data-resource-id="paginas_institucionais_png" />
-  <meta name="ext-resource-dependency" content="img/paginas-servico-adicionar.png" data-resource-id="paginas_servico_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/paginas-servico.png" data-resource-id="paginas_servico_png" />
-  <meta name="ext-resource-dependency" content="img/performance-analytics.png" data-resource-id="performance_analytics_png" />
-  <meta name="ext-resource-dependency" content="img/performance-conversoes.png" data-resource-id="performance_conversoes_png" />
-  <meta name="ext-resource-dependency" content="img/performance-filtros.png" data-resource-id="performance_filtros_png" />
-  <meta name="ext-resource-dependency" content="img/performance-vendas.png" data-resource-id="performance_vendas_png" />
-  <meta name="ext-resource-dependency" content="img/recomendacoes-adicionar.png" data-resource-id="recomendacoes_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/recomendacoes.png" data-resource-id="recomendacoes_png" />
-  <meta name="ext-resource-dependency" content="img/redes-sociais.png" data-resource-id="redes_sociais_png" />
-  <meta name="ext-resource-dependency" content="img/restricoes-adicionar.png" data-resource-id="restricoes_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/restricoes.png" data-resource-id="restricoes_png" />
-  <meta name="ext-resource-dependency" content="img/selos-adicionar.png" data-resource-id="selos_adicionar_png" />
-  <meta name="ext-resource-dependency" content="img/selos.png" data-resource-id="selos_png" />
-  <meta name="ext-resource-dependency" content="img/solicitacoes-exclusao.png" data-resource-id="solicitacoes_exclusao_png" />
-  <meta name="ext-resource-dependency" content="img/suporte-canais.png" data-resource-id="suporte_canais_png" />
-  <meta name="ext-resource-dependency" content="img/suporte-whatsapp.png" data-resource-id="suporte_whatsapp_png" />
-  <meta name="ext-resource-dependency" content="img/testers.png" data-resource-id="testers_png" />
-  <meta name="ext-resource-dependency" content="img/usuarios.png" data-resource-id="usuarios_png" />
-  <meta name="ext-resource-dependency" content="img/vitrines-componentes.png" data-resource-id="vitrines_componentes_png" />
-  <meta name="ext-resource-dependency" content="img/vitrines-configurar.png" data-resource-id="vitrines_configurar_png" />
-  <meta name="ext-resource-dependency" content="img/vitrines.png" data-resource-id="vitrines_png" />
 </head>
 <body>
-<template id="__bundler_thumbnail" data-bg-color="#15181d">
-<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#15181d"/><g fill="none" stroke="#ffffff" stroke-width="26" stroke-linejoin="round"><path d="M600 250 L710 470 L490 470 Z"/></g><rect x="470" y="520" width="260" height="30" rx="8" fill="#ffffff"/><rect x="510" y="575" width="180" height="22" rx="8" fill="#4b5563"/></svg>
-</template>
   <aside class="sidebar">
     <a class="sb-logo" href="#/home">
       <img src="img/leanapp-logo.png" alt="Lean App" />
@@ -584,9 +511,6 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em;line-height:1.15}
           s.style.display=show?'':'none'; if(show) any=true;
         });
         var em=document.getElementById('faqEmpty'); if(em) em.style.display=any?'none':'block';
-      },
-      bnHi:function(k,on){
-        document.querySelectorAll('[data-format="'+k+'"]').forEach(function(el){ el.classList.toggle('is-hi',!!on); });
       }
     };
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') LAapp.closeLb(); });
@@ -596,5 +520,464 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em;line-height:1.15}
     render();
   })();
   </script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "index";
+  // rAF raced with a short timeout: inside a cross-origin iframe (PrintMode),
+  // rAF can be throttled or paused even while the tab is focused, which would
+  // hang the scroll loop and never reach print(). Same pattern as
+  // buildExportSettleScript (export/shared.ts).
+  var raf = function () {
+    return Promise.race([
+      new Promise(function (r) { requestAnimationFrame(r); }),
+      new Promise(function (r) { setTimeout(r, 50); }),
+    ]);
+  };
+  var t0 = performance.now();
+  var mark = function (phase) {
+    var ms = Math.round(performance.now() - t0);
+    console.info('[autoprint]', phase, ms + 'ms');
+    try { parent.postMessage({ __omelette_autoprint: { phase: phase, ms: ms } }, '*'); } catch (e) {}
+  };
+  mark('start');
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    // A placeholder whose fetch failed (.sc-placeholder-error inside) keeps
+    // .sc-placeholder forever — don't wait on it. JS loop, not :has(), so an
+    // engine without :has() support can't throw out of the while and skip
+    // print() entirely.
+    var pendingPlaceholders = function () {
+      var all = settleRoot.querySelectorAll('.sc-placeholder'), n = 0;
+      for (var i = 0; i < all.length; i++)
+        if (!all[i].querySelector('.sc-placeholder-error')) n++;
+      return n;
+    };
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        pendingPlaceholders() === 0;
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  mark('settle-done' + (settleRoot ? ' (errs=' + settleRoot.querySelectorAll('.sc-placeholder-error').length + ' pending=' + pendingPlaceholders() + ')' : ''));
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    var scrollDeadline = Date.now() + 4000;
+    for (let y = 0; y <= full && Date.now() < scrollDeadline; y += step) {
+      window.scrollTo(0, y);
+      await raf();
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  mark('scroll-done');
+  try { await Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 3000))]); } catch (e) {}
+  mark('fonts-done');
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await raf();
+    sweep();
+    await raf();
+  } catch (e) {}
+  // A document that owns its print CSS (the doc-page starter injects the
+  // meta at runtime; hand-rolled print designs author it) gets no automatic
+  // page geometry and keeps its forced breaks: strip the injected default
+  // @page — write time cannot see a runtime-injected meta — skip the frame
+  // override below, and skip the fakepage-flattening further down. What
+  // still applies: the print baseline and break-hygiene defaults (no @page
+  // in either; low specificity, so the document's own print CSS wins) and
+  // the break-inside relaxation on >page elements (avoid on those cannot
+  // be honored whoever authored it).
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
+  if (ownsPrint) {
+    var dst = document.querySelector('style[data-omelette-print-defaults]');
+    if (dst && dst.textContent) {
+      dst.textContent = dst.textContent.replace(/@page\b[^{}]*\{[^}]*\}/, '');
+    }
+  }
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…} or declared print ownership
+  // via the meta above. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+  // Name-presence check, case-insensitive — the same contract as the
+  // instant-PDF path's runtime check in deck-stage-export.ts. The name is
+  // a string literal here because that file interpolates this script into
+  // its print script, so importing a shared constant from it would be a
+  // cycle; measure.test.ts pins the literal so the two cannot drift apart
+  // silently.
+  var ownsPrint = !!document.querySelector('meta[name="omelette-owns-print" i]');
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false, ownsPrint: ownsPrint } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage, ownsPrint: ownsPrint };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: off unless the page opts in via data-om-multi-frame on the
+  // stop element — the explicit opt-in is what guards against card grids
+  // and pricing tables that match the geometry but aren't separate
+  // canvases. Two ways to name the frames, explicit first:
+  // 1. Descendants marked data-om-frame-export (the social-frames starter
+  //    marks each asset frame; shells/panels around them are presentation,
+  //    so nesting is expected). Document order.
+  // 2. Fallback, no marked descendants: direct children with an authored px
+  //    width AND height (the original geometry heuristic).
+  // Frames may be different sizes (a gallery mixes 1080×1920 stories with
+  // 728×90 banners); data-om-frame-label rides along for export filenames.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var visOk = function (e) {
+      var cs; try { cs = getComputedStyle(e); } catch (err) { return false; }
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && cs.position !== 'fixed';
+    };
+    // A frame's crop is its VISUAL box — never the scrollHeight-inflated
+    // rect that rectOf computes for page roots. Shadow-DOM hover controls
+    // (image-slot's Replace bar parks 29px below its host) and similar
+    // escaping UI contribute scrollable overflow to the frame, and the
+    // inflated height both squashes the nominal-size resize and drags
+    // content below the frame into the crop. Zoom-independent; bit every
+    // slot-bearing frame.
+    var frameRectOf = function (e) {
+      var r = e.getBoundingClientRect();
+      return { left: r.left + sx, top: r.top + sy, width: r.width, height: r.height };
+    };
+    var pushCand = function (list, e) {
+      if (!visOk(e)) return;
+      var rc = frameRectOf(e);
+      if (rc.width < 2 || rc.height < 2) return;
+      var lbl = e.getAttribute('data-om-frame-label');
+      if (lbl) rc.label = lbl;
+      list.push(rc);
+    };
+    var cands = [];
+    var marked = el.querySelectorAll('[data-om-frame-export]');
+    if (marked.length) {
+      for (var mk = 0; mk < marked.length; mk++) pushCand(cands, marked[mk]);
+    } else {
+      for (var k = 0; k < el.children.length; k++) {
+        var ch = el.children[k];
+        if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+        pushCand(cands, ch);
+      }
+    }
+    if (cands.length >= 2) {
+      return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (!ownsPrint && __m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          // An owns-print doc's forced breaks are intentional sheet
+          // boundaries, never fake-paged simulation — don't strip them.
+          // The break-inside relaxation above still applies: avoid on a
+          // >page element is impossible to honor whoever authored it.
+          if (
+            !ownsPrint &&
+            (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always')
+          ) {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  mark('print-calling');
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
 </body>
 </html>

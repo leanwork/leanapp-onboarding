@@ -556,7 +556,7 @@
   /* Gestão: Lean App × sua plataforma de e-commerce — orientação fundamental.
      Conteúdo 100% genérico: nunca cite plataformas, ferramentas ou clientes específicos. */
   const GESTAO = {
-    intro: 'A experiência do seu aplicativo é sustentada por dois ambientes que trabalham juntos. No painel da Lean App você gerencia a vitrine e a experiência do app — campanhas, banners, hotsites, selos e performance. Já a sua plataforma de e-commerce continua sendo a base de dados central: catálogo, preços, clientes e pedidos são sincronizados automaticamente para o app via API. Entender essa divisão ajuda seu time a saber exatamente onde realizar cada ajuste.',
+    intro: 'A experiência do seu aplicativo é sustentada por dois ambientes que trabalham juntos. No painel da Lean App você gerencia a vitrine e a experiência do app — campanhas, banners, hotsites, selos e o acompanhamento de performance dos canais apps. Já a sua plataforma de e-commerce continua sendo a base de dados central: catálogo, preços, clientes e pedidos são sincronizados automaticamente para o app via API. Entender essa divisão ajuda seu time a saber exatamente onde realizar cada ajuste.',
     cols: [
       {
         key: 'lean',
@@ -567,8 +567,8 @@
           'Vitrines e banners — com possibilidade de agendar campanhas',
           'Hotsites (landing pages)',
           'Selos e tags de produto — com possibilidade de agendar campanhas',
-          'Performance: analytics, conversões e vendas dos canais',
-          'Categorias — ajustes ocasionais, quando há mudanças',
+          'Performance dos canais apps: analytics, conversões e vendas (refere-se apenas aos canais de aplicativo, não ao canal digital como um todo)',
+          'Categorias dos canais apps — ajustes ocasionais, quando há mudanças',
           'Configurações de catálogo, carrinho/checkout e produto — ajustes raros',
         ],
       },
@@ -588,8 +588,8 @@
       },
     ],
     freq: [
-      { level: 'Frequente', cls: 'high', note: 'No dia a dia', items: 'Vitrines e banners, hotsites, selos e tags de produto, performance.' },
-      { level: 'Ocasional', cls: 'mid', note: 'Quando há mudanças', items: 'Categorias.' },
+      { level: 'Frequente', cls: 'high', note: 'No dia a dia', items: 'Vitrines e banners, hotsites, selos e tags de produto, e o acompanhamento de performance dos canais apps.' },
+      { level: 'Ocasional', cls: 'mid', note: 'Quando há mudanças', items: 'Categorias dos canais apps.' },
       { level: 'Raro', cls: 'low', note: 'Ajustes pontuais', items: 'Configurações de catálogo (layout, ordenação), carrinho/checkout e produto.' },
     ],
     tech: {
@@ -600,10 +600,6 @@
         {
           t: 'Meios de pagamento',
           d: 'Alguns meios de pagamento exigem configurações específicas no envio das informações (criptografia, tokenização, etc.). Esses métodos exigem integração no backend. Portanto, é importante ter mapeado e testado as formas de pagamento que poderão ser utilizadas, para que as configurações necessárias sejam implementadas na solução.',
-          badges: {
-            title: 'O que já está integrado?',
-            items: ['Boleto', 'Cartão Adyen', 'Cartão Mercado Pago', 'Cartões que não exigem criptografia e/ou tokenização', 'PIX à vista'],
-          },
         },
         {
           t: 'Envio de push notifications',
@@ -613,8 +609,31 @@
     },
   };
 
+  /* Guia de produção de banners — especificações de arte para o app.
+     Conteúdo genérico e reutilizável; medidas oficiais da Lean App. */
+  const BANNERS = {
+    intro: 'Este guia reúne as especificações para produzir banners que ficam bem em qualquer tela do Lean App. Seguir essas medidas garante nitidez, alinhamento e consistência visual dentro do app — em Vitrines e Hotsites.',
+    regras: [
+      { n: '1', t: 'Largura da área útil: 1080px', d: 'Essa é a largura de referência para todos os banners. Trabalhe sempre a partir dela para manter proporção e qualidade.' },
+      { n: '2', t: 'Altura livre', d: 'Não há altura fixa. Você define conforme a arte e o tipo de banner, respeitando os exemplos de cada formato abaixo.' },
+      { n: '3', t: 'Espaçamentos dentro da imagem', d: 'O painel não adiciona respiro ao redor do banner. Todo margin, padding e espaçamento precisa já estar embutido na própria arte, para que nenhum elemento fique colado nas bordas.' },
+      { n: '4', t: 'Cadastro em resolução 3x', d: 'Imagens produzidas nessa resolução devem ser cadastradas selecionando a opção de 3x no painel. Isso preserva a nitidez em telas de alta densidade.' },
+    ],
+    formatos: [
+      { key: 'simples', t: 'Imagem simples ou carrossel', d: 'Ocupa toda a largura da área útil.', specs: [['Largura', '1080px'], ['Altura', 'livre (ex. 700px)']] },
+      { key: 'lista', t: 'Lista horizontal', d: 'A estilização é livre. A largura de cada item é o que define quantos aparecem na tela sem rolar: itens mais estreitos mostram mais itens de uma vez.', specs: [['Largura por item', 'livre']] },
+      { key: 'grade', t: 'Grade', d: 'Duas colunas de mesma largura, lado a lado.', specs: [['Altura', 'livre (ex. 500px)']] },
+    ],
+    checklist: [
+      'Área útil de 1080px de largura respeitada para a criação dos banners.',
+      'Margins/Paddings/Espaçamentos incluídos dentro da imagem.',
+      'Formato correto escolhido (simples/carrossel, lista horizontal ou grade).',
+      'Resolução 3x selecionada no painel no momento do cadastro.',
+    ],
+  };
+
   window.LA = {
-    FEATURES, NAV, JOURNEY, START, FAQ, LEVELS, GESTAO,
+    FEATURES, NAV, JOURNEY, START, FAQ, LEVELS, GESTAO, BANNERS,
     byId: (id) => FEATURES.find((f) => f.id === id),
     byJourney: (j) => FEATURES.filter((f) => f.journey === j),
     GROUPS: ['Painéis', 'Marketing', 'Configurações da Loja', 'Controle de Acesso', 'Privacidade & LGPD'],
